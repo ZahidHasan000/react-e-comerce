@@ -11,11 +11,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const server = http.createServer(app);
 
 //reason for socket io
-const { Server } = require('socket.io');
-const io = new Server(server, {
-    cors: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PATCH', "DELETE"]
-});
+// const { Server } = require('socket.io');
+// const io = new Server(server, {
+//     cors: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PATCH', "DELETE"]
+// });
 
 // const User = require('./models/User');
 const userRoutes = require('./routes/userRoutes')
@@ -75,4 +75,4 @@ server.listen(7000, () => {
 });
 
 //that we can had this available in our io route 
-app.set('socketio', io);
+// app.set('socketio', io);

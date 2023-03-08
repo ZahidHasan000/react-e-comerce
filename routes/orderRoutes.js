@@ -6,7 +6,7 @@ const User = require('../models/User');
 router.post('/', async (req, res) => {
 
     // reason for io route
-    const io = req.app.get('socketio');
+    // const io = req.app.get('socketio');
 
     const { userId, cart, country, address } = req.body;
     try {
@@ -19,12 +19,12 @@ router.post('/', async (req, res) => {
         user.orders.push(order);
 
         // reason for socket io notification
-        const notification = { status: 'unread', message: `New order from ${user.name}`, time: new Date() };
-        io.sockets.emit('new-order', notification);
+        // const notification = { status: 'unread', message: `New order from ${user.name}`, time: new Date() };
+        // io.sockets.emit('new-order', notification);
 
-        user.markModified('orders');
-        await user.save();
-        res.status(200).json(user)
+        // user.markModified('orders');
+        // await user.save();
+        // res.status(200).json(user)
 
     } catch (e) {
         res.status(400).json(e.message)

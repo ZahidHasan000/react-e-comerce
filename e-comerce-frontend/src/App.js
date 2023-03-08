@@ -17,34 +17,34 @@ import AdminDashboard from './pages/AdminDashboard';
 import EditProductPage from './pages/EditProductPage';
 
 // reason for socket io
-import { useEffect } from "react";
-import { io } from "socket.io-client";
-import { addNotification } from "./features/userSlice";
+// import { useEffect } from "react";
+// import { io } from "socket.io-client";
+// import { addNotification } from "./features/userSlice";
 
 function App() {
 
   const user = useSelector((state) => state.user);
 
   //reason for io notification
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const socket = io("ws://localhost:8080");
-    socket.off("notification").on("notification", (msgObj, user_id) => {
+  // useEffect(() => {
+    // const socket = io("ws://localhost:8080");
+    // socket.off("notification").on("notification", (msgObj, user_id) => {
 
       // logic for notification
-      if (user_id === user._id) {
-        dispatch(addNotification(msgObj));
-      }
-    });
+    //   if (user_id === user._id) {
+    //     dispatch(addNotification(msgObj));
+    //   }
+    // });
 
     //reason for io notification route
-    socket.off("new-order").on("new-order", (msgObj) => {
-      if (user.isAdmin) {
-        dispatch(addNotification(msgObj));
-      }
-    });
-  }, []);
+    // socket.off("new-order").on("new-order", (msgObj) => {
+    //   if (user.isAdmin) {
+    //     dispatch(addNotification(msgObj));
+    //   }
+    // });
+  // }, []);
 
   // render() {
   return (
