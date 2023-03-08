@@ -1,0 +1,6 @@
+/* .order-details__container { */
+    .order-details__container d-flex justify-content-around{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+};
